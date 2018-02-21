@@ -1,0 +1,17 @@
+name: proximity
+description: Description of proximity
+version: 0.0.1
+
+endpoints:
+  saveLocation:
+    description: "Saves coordinates"
+    file: saveCoordinates.js
+    parameters:
+      coordinates:
+        type: geopoint
+        description: "The users coordinates fetched from the browser"
+
+classes:
+  location:
+    - name: coordinates
+      type: geopoint
