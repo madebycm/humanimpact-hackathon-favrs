@@ -2,10 +2,19 @@ name: auth
 description: Auth
 version: 0.0.1
 
+classes:
+  user:
+    - name: picture_url
+      type: text
+    - name: full_name
+      type: text
+
 endpoints:
   fbgetaccesstoken:
     description: Guess what
     file: fbGetAccessToken.js
+  hello:
+    description: Guess what
   fblogin:
     description: Auth with fb
     file: fbLogin.js

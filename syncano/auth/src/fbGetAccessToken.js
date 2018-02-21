@@ -10,10 +10,8 @@ export default (ctx) => {
 
   axios.get(getAccessTokenUrl+code).then(r => {
   	debug("got code!", r.data.access_token);
-  	socket.get('auth/fblogin/?access_token='+r.data.access_token)
-  	.then(user => {
-  		console.log("what is THIS SHIT");
-  		response.json({status: "OK", user: user})
+  	socket.get('auth/fblogin/?access_token='+r.data.access_token).then(user => {
+  		response.json(user)
   	})
   	.catch(e => console.log(e));
   	//return r.data.access_token;
