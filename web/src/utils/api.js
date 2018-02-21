@@ -6,5 +6,8 @@ syncano.setToken(window.localStorage.getItem('token'))
 export default {
 	auth: {
 		login: ({code}) => syncano.get('auth/fbgetaccesstoken', {code})
+	},
+	geolocation: {
+		saveMyPosition: ({position}) => syncano.post('users/savemyposition', {position})
 	}
 }

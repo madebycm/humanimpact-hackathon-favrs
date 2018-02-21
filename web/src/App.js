@@ -8,12 +8,21 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Proximity from './pages/Proximity'
 import Chat from './pages/Chat'
+import api from './utils/api'
 
 import store, { history } from './store'
 
 import './App.css';
 
 class App extends Component {
+  
+  componentDidMount() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(({coords}) => api.geolocation.saveMyPosition({position: position.coords}));
+    }
+    else alert("Your device doesnt support this app because of geolocation");
+  }
+
   render() {
     return (
       <Provider store={store}>
