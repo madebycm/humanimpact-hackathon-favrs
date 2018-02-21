@@ -13,16 +13,6 @@ import store, { history } from './store'
 import './App.css';
 
 class App extends Component {
-  getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition);
-    }
-  }
-
-  showPosition = (position) => {
-    console.log("hey", position);
-  }
-
   render() {
     return (
       <Provider store={store}>
