@@ -1,11 +1,12 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import './style.css'
 
-const Profile = ({}) => (
+const Profile = ({user}) => (
   <div className='Profile-page'>
     <div>
-      Alek Wikli
+      {user.full_name}
     </div>
 
     <section className='u-mt-'>
@@ -21,4 +22,6 @@ const Profile = ({}) => (
   </div>
 );
 
-export default Profile;
+export default connect(({user}) => ({
+  user: user.profile
+}))(Profile)
