@@ -1,0 +1,11 @@
+.TableRow {
+  display: table-row;
+  border-bottom: solid 1px #ACACAC;
+  transition: .2s;
+  cursor: pointer;
+  background-color: #375990;
+}
+
+.Flex {
+  display: flex;
+}
