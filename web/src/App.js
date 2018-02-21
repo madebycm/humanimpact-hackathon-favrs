@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 
+import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Proximity from './pages/Proximity'
@@ -22,6 +23,8 @@ class App extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/proximity" component={Proximity} />
             <Route path="/chat" component={Chat} />
+
+            <Route path="/auth" component={Auth} />
             {/* <Route component={NoMatch}/> */}
           </Switch>
         </ConnectedRouter>
