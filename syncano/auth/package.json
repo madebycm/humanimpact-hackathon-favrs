@@ -1,0 +1,7 @@
+{
+  "license": "MIT",
+  "dependencies": {
+    "fb": "^2.0.0",
+    "syncano-server": "beta"
+  }
+}

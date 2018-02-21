@@ -1,0 +1,25 @@
+name: auth
+description: Auth
+version: 0.0.1
+
+endpoints:
+  fblogin:
+    description: Auth with fb
+    file: fbLogin.js
+    parameters:
+      accessToken:
+        type: string
+    response:
+      mimetype: application/json
+      examples:
+        - exit_code: 200
+          description: Success
+          example: |
+            {
+              token: "cb21ff98ac8c7dda8fcd0129b0adb0254dea5c8e",
+              username: "u"
+            }
+        - exit_code: 400
+          description: Failed
+          example: |
+            {}
