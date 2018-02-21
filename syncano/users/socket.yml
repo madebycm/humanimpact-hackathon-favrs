@@ -1,0 +1,8 @@
+name: users
+description: Description of users
+version: 0.0.1
+
+endpoints:
+  getMyProfile:
+    description: Get my profile
+    file: getMyProfile.js

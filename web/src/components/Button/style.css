@@ -1,0 +1,30 @@
+.Button {
+  background-color: #fff;
+  border: 1px solid #4080ff;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px 45px;
+  font-size: 14px;
+  color: #000;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.Button:focus {
+  outline: 0;
+}
+
+.Button:hover {
+  border-color: #4080ff;
+  color: #4080ff;
+}
+
+.BackgroundBlue {
+  border-color: #fff;
+  background-color: #4080ff;
+  color: #fff;
+}
+
+.BackgroundBlue:hover {
+  color: #fff;
+}

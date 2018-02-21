@@ -1,7 +1,9 @@
 import React from 'react';
 
+import './style.css'
+
 const Proximity = ({}) => (
-  <div>
+  <div className='Proximity-page'>
     <span>Proximity page</span>
   </div>
 );
