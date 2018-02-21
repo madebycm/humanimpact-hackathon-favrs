@@ -4,12 +4,12 @@ version: 0.0.1
 
 endpoints:
   saveLocation:
-    description: "Saves coordinates"
+    description: Saves coordinates
     file: saveCoordinates.js
     parameters:
       coordinates:
         type: geopoint
-        description: "The users coordinates fetched from the browser"
+        description: The users coordinates fetched from the browser
       user_id:
         type: int
 
