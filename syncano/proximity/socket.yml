@@ -10,8 +10,13 @@ endpoints:
       coordinates:
         type: geopoint
         description: "The users coordinates fetched from the browser"
+      user_id:
+        type: int
 
 classes:
   location:
     - name: coordinates
       type: geopoint
+    - name: user
+      type: reference
+      target: user

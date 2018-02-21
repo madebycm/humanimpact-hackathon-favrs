@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import qs from 'query-string'
 
 import {loginWithFb} from '../../actions/auth'
@@ -10,7 +11,8 @@ class Auth extends Component {
   async componentDidMount() {
     const params = qs.parse(this.props.location.search);
 
-    this.props.loginWithFb(params.code)
+    await this.props.loginWithFb(params.code)
+    this.props.history.push('/profile')
   }
 
   render = () => <div></div>
@@ -19,4 +21,4 @@ class Auth extends Component {
 
 export default connect(null, {
   loginWithFb
-})(Auth)
+})(withRouter(Auth))
