@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import './style.css'
 
 const Profile = ({user}) => (
-  <div className='Profile-page'>
+  <div className='Page'>
     <div>
       {user.full_name}
     </div>

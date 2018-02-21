@@ -8,7 +8,7 @@ const redirectToTheFacebookModal = () => {
 }
 
 const HomePage = ({}) => (
-  <div className='Home-page u-ta-c'>
+  <div className='Page u-ta-c'>
     <img src="https://placehold.it/200x100" alt=""/>
 
     <div>

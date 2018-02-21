@@ -56,3 +56,8 @@ h5 {
 .u-mr   { margin-right: 32px !important; }
 .u-mr-  { margin-right: 16px !important; }
 .u-mr-- { margin-right: 8px !important; }
+
+.Page {
+  background-color: #244070;
+  min-height: 100vh;
+}

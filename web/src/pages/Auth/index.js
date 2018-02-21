@@ -15,7 +15,7 @@ class Auth extends Component {
     this.props.history.push('/profile')
   }
 
-  render = () => <div></div>
+  render = () => <div className='Page'></div>
 }
 
 
