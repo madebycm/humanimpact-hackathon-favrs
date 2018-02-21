@@ -1,0 +1,2 @@
+export const SET_PENDING = 'SET_PENDING'
+export const DELETE_PENDING = 'DELETE_PENDING'
