@@ -17,6 +17,6 @@ class Auth extends Component {
 }
 
 
-export default connect(, {
+export default connect(null, {
   loginWithFb
 })(Auth)
