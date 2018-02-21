@@ -7,16 +7,6 @@ import Chat from './pages/Chat'
 import './App.css';
 
 class App extends Component {
-  getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition);
-    }
-  }
-
-  showPosition = (position) => {
-    console.log("hey", position);
-  }
-
   render() {
     return (
       <Router>
