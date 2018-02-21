@@ -1,0 +1,7 @@
+.Table {
+  width: 100%;
+  display: table;
+  background-color: #fff;
+  border-radius: 5px;
+  border-collapse: collapse;
+}

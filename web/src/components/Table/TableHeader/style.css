@@ -1,0 +1,28 @@
+.TableHeader {
+  display: table-row;
+  border-top: solid 1px #ACACAC;
+  border-bottom: solid 1px #ACACAC;
+  background-color: #1E3C6F;
+  text-transform: uppercase;
+}
+
+.TableCell {
+  display: table-cell;
+  padding: 15px 20px;
+  font-size: 12px;
+  color: #FFF;
+  vertical-align: middle;
+}
+
+.TableCell .Flex {
+  align-items: center;
+}
+
+.TableCell:last-of-type .Avatar {
+  border: 1px dotted;
+  opacity: .9;
+}
+
+.TableCell:last-of-type .Avatar:hover {
+  opacity: 1;
+}
