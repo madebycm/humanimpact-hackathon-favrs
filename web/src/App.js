@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Proximity from './pages/Proximity'
 import Chat from './pages/Chat'
+import Showcase from './pages/Showcase'
 import './App.css';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/profile" component={Profile} />
           <Route path="/proximity" component={Proximity} />
           <Route path="/chat" component={Chat} />
+          <Route path="/showcase" component={Showcase} />
           {/* <Route component={NoMatch}/> */}
         </Switch>
       </Router>
