@@ -1,7 +1,8 @@
 import Syncano from 'syncano-client'
 
 const syncano = new Syncano('purple-cherry-5235')
-syncano.setToken(window.localStorage.getItem('token'))
+const token = window.localStorage.getItem('token')
+syncano.setToken(token)
 
 export default {
 	auth: {
@@ -14,5 +15,8 @@ export default {
 				longitude
 			}
 		})
+	},
+	user: {
+		getProfile: () => syncano.get('users/getmyprofile')
 	}
 }

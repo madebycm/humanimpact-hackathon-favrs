@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
 import Auth from './pages/Auth'
@@ -8,10 +9,15 @@ import Proximity from './pages/Proximity'
 import Chat from './pages/Chat'
 import api from './utils/api'
 
+import {initializeSession} from './actions/auth'
+
 import './App.css';
 
 class App extends Component {
   componentDidMount() {
+    if (!this.props.user.isFetched) {
+      this.props.initializeSession()
+    }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(({coords}) => api.geolocation.saveMyPosition({position: coords}));
     }
@@ -33,4 +39,8 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect(({user}) => ({
+  user
+}), {
+  initializeSession
+})(App)
