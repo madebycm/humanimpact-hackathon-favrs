@@ -15,10 +15,10 @@ import store, { history } from './store'
 import './App.css';
 
 class App extends Component {
-  
+
   componentDidMount() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(({coords}) => api.geolocation.saveMyPosition({position: position.coords}));
+        navigator.geolocation.getCurrentPosition(({coords}) => api.geolocation.saveMyPosition({position: coords}));
     }
     else alert("Your device doesnt support this app because of geolocation");
   }

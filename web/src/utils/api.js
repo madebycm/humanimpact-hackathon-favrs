@@ -8,6 +8,11 @@ export default {
 		login: ({code}) => syncano.get('auth/fbgetaccesstoken', {code})
 	},
 	geolocation: {
-		saveMyPosition: ({position}) => syncano.post('users/savemyposition', {position})
+		saveMyPosition: ({position: {latitude, longitude}}) => syncano.post('users/savemyposition', {
+			position: {
+				latitude,
+				longitude
+			}
+		})
 	}
 }
