@@ -4,11 +4,12 @@ import {setPending, deletePending} from './ui'
 
 export const loginWithFb = code => async dispatch => {
   try {
-    dispatch(setPending('company.getCompanyData'))
+    dispatch(setPending('auth.loginWithFb'))
     const userData = await api.auth.login({code})
     window.localStorage.setItem('token', userData.user_key)
-    dispatch(deletePending('company.getCompanyData'))
+
+    dispatch(deletePending('auth.loginWithFb'))
   } catch (e) {
-    dispatch(deletePending('company.getCompanyData'))
+    dispatch(deletePending('auth.loginWithFb'))
   }
 }
