@@ -2,17 +2,17 @@ import FB from 'fb'
 import Syncano from 'syncano-server'
 
 export default (ctx) => {
-  const {users, response, logger} = Syncano(ctx)
+  const {users, response, logger, socket} = Syncano(ctx)
   const {debug} = logger('hello script')
 
-  const accessToken = ctx.args.code
+  const accessToken = ctx.args.access_token
 
   FB.api('me', { fields: 'id,name,picture', access_token: accessToken }, async (res) => {
     debug('fb response', res)
     try {
       debug('finding user')
       const user = await users
-        .fields('id', 'user_key', 'full_name')
+        .fields('fb_id', 'full_name', 'picture_url')
         .firstOrCreate(
         {
           fb_id: res.id,

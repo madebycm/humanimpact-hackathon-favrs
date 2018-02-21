@@ -3,6 +3,9 @@ description: Auth
 version: 0.0.1
 
 endpoints:
+  fbgetaccesstoken:
+    description: Guess what
+    file: fbGetAccessToken.js
   fblogin:
     description: Auth with fb
     file: fbLogin.js
