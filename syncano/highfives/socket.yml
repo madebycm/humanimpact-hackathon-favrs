@@ -1,0 +1,40 @@
+name: highfives
+description: Description of highfives
+version: 0.0.1
+
+classes:
+  highfives:
+    - name: from_user
+      type: reference
+    - name: to_user
+      type: reference
+    - name: photo
+      type: file
+    - name: status
+      type: string
+
+endpoints:
+  initialize:
+    description: Creates a new highfive object
+    file: initialize.js
+    parameters:
+      to_user:
+        type: integer
+        description: "Invited user to make a high five"
+        example: 2
+      photo:
+        type: file
+        description: "File (photo) with the high five"
+        example: "<File>"
+      status:
+        type: string
+        description: "Status of the high five"
+        example: "invited"
+  confirm:
+    description: Confirm highfive
+    file: confirm.js
+    parameters:
+      id:
+        type: integer
+        description: "Id of the high five"
+        example: 2
