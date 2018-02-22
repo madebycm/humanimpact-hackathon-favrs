@@ -10,6 +10,8 @@ export default (ctx) => {
   const redirectUri = ctx.meta.request.HTTP_REFERER + "auth";
   const getAccessTokenUrl = 'https://graph.facebook.com/oauth/access_token?client_id=1747104338635842&redirect_uri='+redirectUri+'fbgetaccesstoken/&client_secret=eb73ff8ffa009d8881bc96894477e347&code=';
 
+  console.log("black mirror", getAccessTokenUrl);
+
   axios.get(getAccessTokenUrl+code).then(r => {
   	debug("got code!", r.data.access_token);
   	socket.get('auth/fblogin/?access_token='+r.data.access_token).then(user => {

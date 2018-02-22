@@ -6,8 +6,10 @@ classes:
   highfives:
     - name: from_user
       type: reference
+      target: user
     - name: to_user
       type: reference
+      target: user
     - name: photo
       type: file
     - name: status
