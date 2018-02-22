@@ -1,8 +1,11 @@
 import React, {PureComponent} from 'react';
 import { withRouter } from 'react-router-dom'
+import {connect} from 'react-redux'
 import api from '../../utils/api'
 
 import {Header, Table, IconButton} from '../../components'
+
+import {getNearesUserLocations} from '../../actions/proximity'
 
 import './style.css'
 
@@ -14,7 +17,7 @@ class Proximity extends PureComponent {
     if (!token) {
       history.push('/')
     } else {
-      api.proximity.getNearesUserLocations()
+      this.props.getNearesUserLocations()
     }
   }
 
@@ -37,22 +40,20 @@ class Proximity extends PureComponent {
 
         <Table
           className='u-mt'
-          rows={[
-            {
-              name: 'Thomas',
-              distance: '0,3km',
-              onIconClick: () => history.push('/chat')
-            },
-            {
-              name: 'Stine',
-              distance: '0,3km',
-              onIconClick: () => history.push('/chat')
-            }
-          ]}
+          rows={this.props.users.map(user => ({
+            name: user.userdata.full_name,
+            url: user.userdata.picture_url,
+            distance: `${user.geodata.distance.text} (${user.geodata.duration.text})`,
+            onIconClick: () => history.push('/chat')
+          }))}
         />
       </div>
     );
   }
 }
 
-export default withRouter(Proximity);
+export default withRouter(connect(({proximity}) => ({
+  users: proximity.nearestUsers
+}), {
+  getNearesUserLocations
+})(Proximity));
