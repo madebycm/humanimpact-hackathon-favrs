@@ -8,7 +8,7 @@ import './style.css'
 
 const Header = ({user, children}) => (
   <header>
-    <Wrapper>
+    <Wrapper className='u-space-between'>
       <section>
         <Avatar url={user.picture_url} />
         <h3 className='u-ml-'>{user.full_name}</h3>
