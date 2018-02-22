@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import {Header, Wrapper} from '../../components'
+import {Header, Wrapper, CircleButton} from '../../components'
 
 import './style.css'
 
@@ -31,9 +31,12 @@ class Profile extends PureComponent {
             </div>
 
             <div className='High-fives__item u-ml-- u-ta-c u-width-half '>
-              <button onClick={() => history.push('/proximity')}>
-                Tap - and find someone to take a High-five with
-              </button>
+              <CircleButton
+                className='Proximity-redirect-button'
+                text={`Tap - and find\nsomeone to take a\nHigh-five with`}
+                fileName='HighFiveIcon.png'
+                onClick={() => history.push('/proximity')}
+              />
             </div>
           </section>
         </Wrapper>
@@ -53,7 +56,7 @@ class Profile extends PureComponent {
                 </li>
                 <li className='High-fives-list__item'>
                   <aside className='badge'>HIGH FIVE</aside>
-                  <img src="http://lorempixel.com/g/100/300" alt=""/>
+                  <img src="http://lorempixel.com/g/100/301" alt=""/>
                 </li>
               </ul>
 
@@ -64,7 +67,7 @@ class Profile extends PureComponent {
                 </li>
                 <li className='High-fives-list__item'>
                   <aside className='badge'>HIGH FIVE</aside>
-                  <img src="http://lorempixel.com/g/100/200" alt=""/>
+                  <img src="http://lorempixel.com/g/100/201" alt=""/>
                 </li>
               </ul>
             </div>

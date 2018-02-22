@@ -35,3 +35,8 @@
   border-radius: 20px;
   font-size: 14px;
 }
+
+.Proximity-redirect-button.CircleButton {
+  width: 130px;
+  height: 130px;
+}

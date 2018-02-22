@@ -18,5 +18,8 @@ export default {
 	},
 	user: {
 		getProfile: () => syncano.get('users/getmyprofile')
+	},
+	proximity: {
+		getNearesUserLocations: () => syncano.get('proximity/getnearestuserlocations')
 	}
 }

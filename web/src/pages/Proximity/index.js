@@ -1,5 +1,7 @@
 import React, {PureComponent} from 'react';
 import { withRouter } from 'react-router-dom'
+import api from '../../utils/api'
+
 import {Header, Table, IconButton} from '../../components'
 
 import './style.css'
@@ -11,6 +13,8 @@ class Proximity extends PureComponent {
 
     if (!token) {
       history.push('/')
+    } else {
+      api.proximity.getNearesUserLocations()
     }
   }
 
