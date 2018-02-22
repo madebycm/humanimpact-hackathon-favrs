@@ -28,19 +28,17 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/proximity" component={Proximity} />
-          <Route path="/chat" component={Chat} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/proximity" component={Proximity} />
+        <Route path="/chat" component={Chat} />
 
-          <Route path="/auth" component={Auth} />
+        <Route path="/auth" component={Auth} />
 
-          <Route path="/showcase" component={Showcase} />
-          {/* <Route component={NoMatch}/> */}
-        </Switch>
-      </Router>
+        <Route path="/showcase" component={Showcase} />
+        {/* <Route component={NoMatch}/> */}
+      </Switch>
     );
   }
 }
