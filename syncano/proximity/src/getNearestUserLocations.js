@@ -9,7 +9,6 @@ export default async (ctx) => {
   	response.json({error: "Dont even think about it"}, 403)
   }
 
-
   const allUsers = await users.list()
   const highFives = await data.highfives.where('to_user', ctx.meta.user.id)
 
@@ -40,5 +39,4 @@ export default async (ctx) => {
 
   		return response.json(filtered);
   	})
-
 }
