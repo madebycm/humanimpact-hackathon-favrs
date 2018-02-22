@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/Button'
 import Table from '../components/Table'
 import IconButton from '../components/IconButton'
+import CircleButton from '../components/CircleButton'
 // import Avatar from '../components/Avatar'
 
 const membersList = [
@@ -27,6 +28,11 @@ const Showcase = ({}) => (
       <IconButton text="Back to list" />
       <IconButton text="Back to list" />
     </div>
+    <h2>Circle Button</h2>
+    <CircleButton
+      fileName="HighFiveIcon.png"
+      text="Confirm"
+    />
     <h2>List:</h2>
     <Table
       rows={membersList}
