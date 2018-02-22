@@ -22,6 +22,15 @@ class Chat extends PureComponent {
     ],
   }
 
+  componentWillMount() {
+    const {history} = this.props
+    const token = window.localStorage.getItem('token')
+
+    if (!token) {
+      history.push('/')
+    }
+  }
+
   render() {
     const {history} = this.props
 
