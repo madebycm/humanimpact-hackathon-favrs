@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Chat = ({}) => (
+const Chat = () => (
   <div>
     <span>Chat page</span>
   </div>

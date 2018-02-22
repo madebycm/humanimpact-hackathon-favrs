@@ -7,7 +7,7 @@ const redirectToTheFacebookModal = () => {
   window.location.href = `https://www.facebook.com/v2.12/dialog/oauth?client_id=1747104338635842&redirect_uri=http://${window.location.host}/auth`
 }
 
-const HomePage = ({}) => (
+const HomePage = () => (
   <div className='Page u-ta-c'>
     <img src="https://placehold.it/200x100" alt=""/>
 

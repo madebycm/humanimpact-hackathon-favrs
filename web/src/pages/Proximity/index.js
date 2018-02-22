@@ -3,7 +3,7 @@ import Table from '../../components/Table'
 
 import './style.css'
 
-const Proximity = ({}) => (
+const Proximity = () => (
   <div className='Page'>
     <Table
       rows={[
