@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
 import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
-import api from '../../utils/api'
 
 import {Header, Table, IconButton} from '../../components'
 
@@ -10,7 +9,7 @@ import {getNearesUserLocations} from '../../actions/proximity'
 import './style.css'
 
 class Proximity extends PureComponent {
-  componentWillMount() {
+  componentDidMount() {
     const {history} = this.props
     const token = window.localStorage.getItem('token')
 

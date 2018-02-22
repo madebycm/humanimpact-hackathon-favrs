@@ -4,7 +4,7 @@ import {
 import api from '../utils/api'
 import {setPending, deletePending} from './ui'
 
-export const getNearesUserLocations = code => async dispatch => {
+export const getNearesUserLocations = () => async (dispatch, getState) => {
   try {
     dispatch(setPending('proximity.getProfile'))
     const users = await api.proximity.getNearesUserLocations()

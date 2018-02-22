@@ -16,9 +16,9 @@ import {initializeSession} from './actions/auth'
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     if (!this.props.user.isFetched) {
-      this.props.initializeSession()
+      await this.props.initializeSession()
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(({coords}) => api.geolocation.saveMyPosition({position: coords}));
