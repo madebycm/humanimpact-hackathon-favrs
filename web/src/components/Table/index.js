@@ -15,6 +15,7 @@ const Table = ({ rows = [], className }) => (
         name={row.name}
         distance={row.distance}
         url={row.url}
+        onIconClick={row.onIconClick}
       />
     ))}
   </div>
