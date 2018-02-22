@@ -2,8 +2,11 @@ import React from 'react';
 
 import './style.css'
 
-const Wrapper = ({children}) => (
-  <div className='Wrapper'>
+const Wrapper = ({className, children}) => (
+  <div className={`
+    Wrapper
+    ${className ? className : ''}
+  `}>
     {children}
   </div>
 );
