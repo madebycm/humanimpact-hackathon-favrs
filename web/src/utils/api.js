@@ -32,5 +32,19 @@ export default {
 
 			return syncano.get('proximity/getnearestuserlocations')
 		}
+	},
+	highFives: {
+		initialize: ({to_user}) => {
+			const token = window.localStorage.getItem('token')
+			syncano.setToken(token)
+
+			return syncano.get('highfives/initialize', {to_user})
+		},
+		confirm: (data) => {
+			const token = window.localStorage.getItem('token')
+			syncano.setToken(token)
+
+			return syncano.post('highfives/confirm', data)
+		}
 	}
 }

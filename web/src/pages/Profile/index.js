@@ -17,7 +17,7 @@ class Profile extends PureComponent {
   }
 
   render() {
-    const {history} = this.props
+    const {history, user, myhf, allhf} = this.props
 
     return (
       <div className='Page'>
@@ -50,25 +50,21 @@ class Profile extends PureComponent {
           <Wrapper>
             <div className='u-space-between u-mt--'>
               <ul className='High-fives-list u-width-half u-mr--'>
-                <li className='High-fives-list__item'>
-                  <aside className='badge'>HIGH FIVE</aside>
-                  <img src="http://lorempixel.com/g/100/300" alt=""/>
-                </li>
-                <li className='High-fives-list__item'>
-                  <aside className='badge'>HIGH FIVE</aside>
-                  <img src="http://lorempixel.com/g/100/301" alt=""/>
-                </li>
+                {myhf.map(hf => (
+                  <li className='High-fives-list__item'>
+                    <aside className='badge'>HIGH FIVE</aside>
+                    <img src={hf.photo} alt=""/>
+                  </li>
+                ))}
               </ul>
 
               <ul className='High-fives-list u-width-half u-ml--'>
-                <li className='High-fives-list__item'>
-                  <aside className='badge'>HIGH FIVE</aside>
-                  <img src="http://lorempixel.com/g/100/200" alt=""/>
-                </li>
-                <li className='High-fives-list__item'>
-                  <aside className='badge'>HIGH FIVE</aside>
-                  <img src="http://lorempixel.com/g/100/201" alt=""/>
-                </li>
+                {allhf.map(hf => (
+                  <li className='High-fives-list__item'>
+                    <aside className='badge'>HIGH FIVE</aside>
+                    <img src={hf.photo} alt=""/>
+                  </li>
+                ))}
               </ul>
             </div>
           </Wrapper>
@@ -79,5 +75,7 @@ class Profile extends PureComponent {
 }
 
 export default withRouter(connect(({user}) => ({
-  user: user.profile
+  user: user.profile,
+  myhf: user.myhf,
+  allhf: user.allhf,
 }))(Profile))

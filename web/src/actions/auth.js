@@ -21,9 +21,9 @@ export const initializeSession = () => async dispatch => {
     const token = window.localStorage.getItem('token')
     if (!token) return
 
-    const {user} = await api.user.getProfile()
+    const {user, myhf, allhf} = await api.user.getProfile()
 
-    dispatch(setProfile(user))
+    dispatch(setProfile({profile: user, myhf, allhf}))
     dispatch(deletePending('auth.initializeSession'))
   } catch (e) {
     dispatch(deletePending('auth.initializeSession'))

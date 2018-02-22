@@ -32,7 +32,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route path="/profile" component={Profile} />
         <Route path="/proximity" component={Proximity} />
-        <Route path="/chat/:id" component={Chat} />
+        <Route path="/chat/:id/:highFiveId" component={Chat} />
 
         <Route path="/auth" component={Auth} />
 
