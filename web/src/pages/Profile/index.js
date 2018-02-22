@@ -8,7 +8,7 @@ import './style.css'
 
 class Profile extends PureComponent {
   componentWillMount() {
-    const {user, history} = this.props
+    const {history} = this.props
     const token = window.localStorage.getItem('token')
 
     if (!token) {
@@ -17,7 +17,7 @@ class Profile extends PureComponent {
   }
 
   render() {
-    const {user, history} = this.props
+    const {history} = this.props
 
     return (
       <div className='Page'>
