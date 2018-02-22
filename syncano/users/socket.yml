@@ -19,3 +19,9 @@ endpoints:
   saveMyPosition:
     description: Take a wild guess
     file: saveMyPosition.js
+  find:
+    description: Find user by id
+    file: find.js
+    parameters:
+      id:
+        type: integer
