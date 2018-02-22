@@ -17,7 +17,7 @@ class Profile extends PureComponent {
   }
 
   render() {
-    const {user} = this.props
+    const {user, history} = this.props
 
     return (
       <div className='Page'>
@@ -31,7 +31,9 @@ class Profile extends PureComponent {
             </div>
 
             <div className='High-fives__item u-ml-- u-ta-c u-width-half '>
-              Tap - and find someone to take a High-five with
+              <button onClick={() => history.push('/proximity')}>
+                Tap - and find someone to take a High-five with
+              </button>
             </div>
           </section>
         </Wrapper>

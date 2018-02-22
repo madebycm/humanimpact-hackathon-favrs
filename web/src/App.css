@@ -5,6 +5,10 @@ body {
   padding: 0;
 }
 
+button {
+  color: #fff;
+}
+
 * {
   box-sizing: border-box;
 }
