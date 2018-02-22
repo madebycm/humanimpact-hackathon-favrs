@@ -9,17 +9,27 @@ export default {
 		login: ({code}) => syncano.get('auth/fbgetaccesstoken', {code})
 	},
 	geolocation: {
-		saveMyPosition: ({position: {latitude, longitude}}) => syncano.post('users/savemyposition', {
-			position: {
-				latitude,
-				longitude
-			}
-		})
+		saveMyPosition: ({position: {latitude, longitude}}) => {
+			const token = window.localStorage.getItem('token')
+			syncano.setToken(token)
+
+			return syncano.post('users/savemyposition', {
+				position: {
+					latitude,
+					longitude
+				}
+			})
+		}
 	},
 	user: {
 		getProfile: () => syncano.get('users/getmyprofile')
 	},
 	proximity: {
-		getNearesUserLocations: () => syncano.get('proximity/getnearestuserlocations')
+		getNearesUserLocations: () => {
+			const token = window.localStorage.getItem('token')
+			syncano.setToken(token)
+
+			return syncano.get('proximity/getnearestuserlocations')
+		}
 	}
 }

@@ -8,7 +8,7 @@ const TableRow = ({ name, distance, url, onIconClick }) => (
     <div className="TableCell">
       <div className="Flex">
         <Avatar url={url} />
-        {name}
+        <span className='u-ml--'>{name}</span>
       </div>
     </div>
     <div className="TableCell">
