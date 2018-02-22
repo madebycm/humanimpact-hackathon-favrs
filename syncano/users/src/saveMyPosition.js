@@ -10,6 +10,6 @@ export default (ctx) => {
 
   users.update(ctx.meta.user.id, {last_position: ctx.args.position}).then(r => {
     response.json({status: "OK", response: r});
-  }).catch(e => console.log("Fucked up", e))
+  }).catch(e => response.json({status: "Shit", error: 3}, 400))
 
 }

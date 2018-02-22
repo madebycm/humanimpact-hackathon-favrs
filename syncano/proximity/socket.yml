@@ -12,6 +12,8 @@ endpoints:
         description: The users coordinates fetched from the browser
       user_id:
         type: int
+  getNearestUserLocations:
+    file: getNearestUserLocations.js
 
 classes:
   location:
