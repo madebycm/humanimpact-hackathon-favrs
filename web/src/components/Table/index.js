@@ -3,8 +3,11 @@ import './style.css';
 import TableRow from './TableRow';
 import TableHeader from './TableHeader';
 
-const Table = ({ rows = [] }) => (
-  <div className="Table">
+const Table = ({ rows = [], className }) => (
+  <div className={`
+    Table
+    ${className ? className : ''}
+  `}>
     <TableHeader/>
     {rows.map((row, index) => (
       <TableRow

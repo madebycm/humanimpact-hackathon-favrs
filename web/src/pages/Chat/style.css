@@ -1,0 +1,8 @@
+.Chat-page__Instructions__item .badge {
+  background-color: red;
+  display: inline-block;
+  width: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  text-align: center;
+}

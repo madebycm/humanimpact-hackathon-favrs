@@ -1,4 +1,3 @@
-import {syncano} from '../utils/api'
 import api from '../utils/api'
 import {setPending, deletePending} from './ui'
 
