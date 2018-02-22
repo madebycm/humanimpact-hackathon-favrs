@@ -1,3 +1,7 @@
 hosting:
   staging:
     src: ../web/build
+dependencies:
+  sockets:
+    google-maps:
+      version: 0.0.10

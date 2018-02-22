@@ -1,0 +1,402 @@
+name: google-maps
+description: Description of google-maps
+version: 0.0.10
+keywords:
+  - gmap
+  - map
+  - google
+  - google map
+  - maps
+  - place
+  - direction
+  - aexol
+runtime: nodejs_v8
+config:
+  GOOGLE_MAPS_API_KEY:
+    description: your Google Maps api key
+    required: true
+classes:
+  placePhoto:
+    - name: placeId
+      type: string
+      filter_index: true
+    - name: file
+      type: file
+endpoints:
+  suggest:
+    description: Endpoint for places api
+    file: suggest.js
+    parameters:
+      keyword:
+        type: string
+        description: Location you are looking for
+        example: Joes pizza
+        required: true
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: array of suggestions
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  places:
+    description: >-
+      Endpoint for places api. Shows nearby places to location
+      https://developers.google.com/places/web-service/details
+    file: place/places.js
+    parameters:
+      keyword:
+        type: string
+        description: Location you are looking for
+        example: Joes pizza
+        required: true
+      location:
+        type: string
+        description: Location in correct google format
+        example: '33.8670522,151.1957362'
+        required: true
+      radius:
+        type: integer
+        description: >-
+          Radius to specify when location is specified( in meters ) Default is
+          5000
+        example: 500
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: array of places
+      noresults:
+        description: No results
+        exit_code: 404
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  placeAutocomplete:
+    description: >-
+      Endpoint for places api. . Instead of searching for a specific location, a
+      user can type in a categorical search, such as "pizza near New York" and
+      the service responds with a list of places.
+      https://developers.google.com/places/web-service/details
+    file: place/autocomplete.js
+    parameters:
+      keyword:
+        type: string
+        description: Location you are looking for
+        example: ben jerrys washington
+        required: true
+      location:
+        type: string
+        description: Location in correct google format
+        example: '33.8670522,151.1957362'
+      radius:
+        type: integer
+        description: >-
+          Radius to specify when location is specified( in meters ) Default is
+          5000
+        example: 500
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: array of places
+      noresults:
+        description: No results
+        exit_code: 404
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  placeQuery:
+    description: >-
+      Endpoint for places api. . Instead of searching for a specific location, a
+      user can type in a categorical search, such as "pizza near New York" and
+      the service responds with a list of suggested queries matching the string.
+      https://developers.google.com/places/web-service/details
+    file: place/query.js
+    parameters:
+      keyword:
+        type: string
+        description: Location you are looking for
+        example: pizza near Wolf City
+        required: true
+      location:
+        type: string
+        description: Location in correct google format
+        example: '33.8670522,151.1957362'
+      radius:
+        type: integer
+        description: >-
+          Radius to specify when location is specified( in meters ) Default is
+          5000
+        example: 500
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: array of places
+      noresults:
+        description: No results
+        exit_code: 404
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  placePhotos:
+    description: >-
+      Endpoint for places api. shows best matching place photo urls
+      https://developers.google.com/places/web-service/details
+    file: place/photos.js
+    parameters:
+      keyword:
+        type: string
+        description: Location you are looking for
+        example: Joes pizza
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: array of places
+      noresults:
+        description: No results
+        exit_code: 404
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  placePhotoById:
+    description: Get place photo by photo reference id
+    file: place/photoById.js
+    parameters:
+      photo:
+        type: string
+        description: photo reference id
+        example: >-
+          CmRaAAAA_mhlpOXJJujHrvIyYnn9_Nvui_5Ks6LX9M8Nc-FfeykobK3qmwgrYEAw6dZTL_LITdckUhIqDa7Ggb2no3L_YXZm__V8MAQpQpv9Ogs_FyI-MYH3Rm4hhqJu3zGct9fWEhDyNp2xC0snbnEkKqSFaMH9GhR_jqBfg4LpwMhocNjvLoOOCb6YcQ
+  placeDetails:
+    description: >-
+      Endpoint for places api. shows best matching place photo urls
+      https://developers.google.com/places/web-service/details
+    file: place/details.js
+    parameters:
+      placeId:
+        type: string
+        description: Place identifier
+        example: e2b3d78b07230fc3400ed8a11a581e011f871025
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: place details
+      noresults:
+        description: No results
+        exit_code: 404
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  geocoding:
+    description: Endpoint for geocoding api
+    file: geocoding.js
+    parameters:
+      address:
+        type: string
+        description: Address you are looking for
+        example: Brooklyn 34
+      location:
+        type: string
+        description: >-
+          Location around which to search in correct google format( if no
+          address is specified perform reverse geocoding)
+        example: '33.8670522,151.1957362'
+      radius:
+        type: integer
+        description: Radius to specify when location is specified( in meters )
+        example: 500
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      success:
+        mimetype: application/json
+        description: array of addresses
+      noresults:
+        description: No results
+        exit_code: 404
+      error:
+        description: Wrong parameters
+        exit_code: 400
+  directions:
+    description: Endpoint for directions api
+    file: directions.js
+    parameters:
+      origin:
+        type: string
+        description: Starting location
+        example: '33.8670522,151.1957362 or Brooklyn 77( lat,lng ) or string'
+        required: true
+      destination:
+        type: string
+        description: Finish location
+        example: '33.8670522,151.1957362 or Brooklyn 77( lat,lng ) or string'
+        required: true
+      mode:
+        type: string
+        description: Mode
+        example: driving|walking|bicycling|transit
+      params:
+        type: object
+        description: Extra parameters acceptable by google places api
+        example: |
+          {
+            "language":"de"
+          }
+    response:
+      mimetype: application/json
+      success:
+        description: Success
+        parameters:
+          geocoded_waypoints:
+            type: array
+            description: array of geocoded waypoints
+            example: []
+          routes:
+            type: array
+            description: array of routes
+            example: []
+          status:
+            type: integer
+            description: status of response
+            example: 200
+      error:
+        description: Error
+        exit_code: 400
+        parameters:
+          message:
+            type: string
+            description: error message
+            example: Incorrect API key!
+  distance:
+    description: Endpoint for getting distance between two locations ( in meters )
+    file: distance.js
+    parameters:
+      origin:
+        type: string
+        description: Starting location
+        example: '33.8670522,151.1957362 or Brooklyn 77( lat,lng ) or string'
+        required: true
+      destination:
+        type: string
+        description: Finish location
+        example: '33.8670522,151.1957362 or Brooklyn 77( lat,lng ) or string'
+        required: true
+      mode:
+        type: string
+        description: Mode
+        example: 'default:driving|walking|bicycling|transit'
+    response:
+      mimetype: application/json
+      success:
+        description: Success
+        parameters:
+          text:
+            type: string
+            description: value in km
+            example: 4.8km
+          value:
+            type: integer
+            description: Value in meters
+            example: 4795
+      error:
+        description: Error
+        exit_code: 400
+        parameters:
+          message:
+            type: string
+            description: error message
+            example: Incorrect API key!
+  time:
+    description: Endpoint for getting time to travel between two locations ( in meters )
+    file: time.js
+    parameters:
+      origin:
+        type: string
+        description: Starting location
+        example: '33.8670522,151.1957362 or Brooklyn 77( lat,lng ) or string'
+        required: true
+      destination:
+        type: string
+        description: Finish location
+        example: '33.8670522,151.1957362 or Brooklyn 77( lat,lng ) or string'
+        required: true
+      mode:
+        type: string
+        description: Mode
+        example: 'default:driving|walking|bicycling|transit'
+    response:
+      mimetype: application/json
+      success:
+        description: Success
+        parameters:
+          text:
+            type: string
+            description: value in minutes
+            example: 10 mins
+          value:
+            type: integer
+            description: Value in seconds
+            example: 605
+      error:
+        description: Error
+        exit_code: 400
+        parameters:
+          message:
+            type: string
+            description: error message
+            example: Incorrect API key!
+  address:
+    description: Endpoint for geocoding api returns address from location
+    file: address.js
+    parameters:
+      location:
+        type: string
+        description: Location
+        example: '33.8670522,151.1957362'
+        required: true
