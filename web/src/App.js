@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
+import { withRouter, Switch, Route } from 'react-router-dom'
 
 import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Proximity from './pages/Proximity'
 import Chat from './pages/Chat'
+import Showcase from './pages/Showcase'
+
 import api from './utils/api'
 
 import {initializeSession} from './actions/auth'
@@ -33,14 +35,16 @@ class App extends Component {
         <Route path="/chat" component={Chat} />
 
         <Route path="/auth" component={Auth} />
+
+        <Route path="/showcase" component={Showcase} />
         {/* <Route component={NoMatch}/> */}
       </Switch>
     );
   }
 }
 
-export default connect(({user}) => ({
+export default withRouter(connect(({user}) => ({
   user
 }), {
   initializeSession
-})(App)
+})(App))
