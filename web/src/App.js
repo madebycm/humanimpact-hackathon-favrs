@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
+import { withRouter, Switch, Route } from 'react-router-dom'
 
 import Auth from './pages/Auth'
 import Home from './pages/Home'
@@ -43,8 +43,8 @@ class App extends Component {
   }
 }
 
-export default connect(({user}) => ({
+export default withRouter(connect(({user}) => ({
   user
 }), {
   initializeSession
-})(App)
+})(App))
