@@ -1,0 +1,18 @@
+.CircleButton {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px dashed #fff;
+  background-color: #203861;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #637491;
+  font-size: 12px;
+}
+
+.ButtonIcon {
+  height: 25px;
+  margin-bottom: 5px;
+}
