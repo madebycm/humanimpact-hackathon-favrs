@@ -23,11 +23,13 @@ const Proximity = ({history}) => (
       rows={[
         {
           name: 'Thomas',
-          distance: '0,3km'
+          distance: '0,3km',
+          onIconClick: () => history.push('/chat')
         },
         {
           name: 'Stine',
-          distance: '0,3km'
+          distance: '0,3km',
+          onIconClick: () => history.push('/chat')
         }
       ]}
     />
