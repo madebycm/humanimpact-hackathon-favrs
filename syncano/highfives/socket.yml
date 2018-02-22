@@ -11,7 +11,7 @@ classes:
       type: reference
       target: user
     - name: photo
-      type: file
+      type: string
     - name: status
       type: string
 
@@ -44,3 +44,8 @@ endpoints:
     file: getMyHighfives.js
   getAllHighFives:
     file: getAllHighfives.js
+  getPhotoFromId:
+    file: getPhotoFromId.js
+    parameters:
+      id:
+        type: integer
