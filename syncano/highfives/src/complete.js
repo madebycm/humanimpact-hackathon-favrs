@@ -9,9 +9,8 @@ export default (ctx) => {
   }
 
   data.highfives.update(ctx.args.id, {
-    status: 'confirmed',
+    status: 'completed',
   }).then(r => {
-    // upload here
     response.json({status: "OK", response: r});
   }).catch(e => console.log("Fucked up", e))
 
