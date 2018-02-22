@@ -1,0 +1,21 @@
+name: users
+description: Description of users
+version: 0.0.1
+
+classes:
+  user:
+    - name: picture_url
+      type: text
+    - name: full_name
+      type: text
+    - name: last_position
+      type: geopoint
+
+
+endpoints:
+  getMyProfile:
+    description: Get my profile
+    file: getMyProfile.js
+  saveMyPosition:
+    description: Take a wild guess
+    file: saveMyPosition.js

@@ -1,0 +1,4 @@
+export const SET_PENDING = 'SET_PENDING'
+export const DELETE_PENDING = 'DELETE_PENDING'
+
+export const SET_USER_PROFILE = 'SET_USER_PROFILE'
