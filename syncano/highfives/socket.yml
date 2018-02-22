@@ -40,3 +40,7 @@ endpoints:
         type: integer
         description: "Id of the high five"
         example: 2
+  getMyHighfives:
+    file: getMyHighfives.js
+  getAllHighFives:
+    file: getAllHighfives.js
