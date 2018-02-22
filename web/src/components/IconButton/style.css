@@ -2,7 +2,13 @@
   display: flex;
   align-items: center;
   color: #FFF;
+  background-color: transparent;
+  border: 0;
   cursor: pointer;
+}
+
+.IconButton:focus {
+  outline: 0;
 }
 
 .IconContainer {

@@ -24,12 +24,11 @@ const Showcase = ({}) => (
     </div>
     <h2>Icon Button:</h2>
     <div>
-      <IconButton label="Back to list" />
-      <IconButton label="Back to list" />
+      <IconButton text="Back to list" />
+      <IconButton text="Back to list" />
     </div>
     <h2>List:</h2>
     <Table
-      name="John"
       rows={membersList}
     />
     <h2>Avatar:</h2>
