@@ -6,17 +6,19 @@ import {
   SET_CHAT_USER,
 } from './'
 
-export const setProfile = profile => ({
+export const setProfile = ({profile, allhf, myhf}) => ({
   type: SET_USER_PROFILE,
-  profile
+  profile,
+  allhf,
+  myhf
 })
 
 export const getProfile = code => async dispatch => {
   try {
     dispatch(setPending('user.getProfile'))
-    const user = await api.user.getProfile()
+    const {user, myhf, allhf} = await api.user.getProfile()
 
-    dispatch(setProfile(user))
+    dispatch(setProfile({profile: user, myhf, allhf}))
     dispatch(deletePending('user.getProfile'))
   } catch (e) {
     dispatch(deletePending('user.getProfile'))

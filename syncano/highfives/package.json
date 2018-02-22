@@ -1,6 +1,7 @@
 {
   "license": "MIT",
   "dependencies": {
+    "form-data": "^2.3.2",
     "syncano-server": "beta"
   }
 }

@@ -6,6 +6,8 @@ import {Header, Table, IconButton} from '../../components'
 
 import {getNearesUserLocations} from '../../actions/proximity'
 
+import api from '../../utils/api'
+
 import './style.css'
 
 class Proximity extends PureComponent {
@@ -18,6 +20,10 @@ class Proximity extends PureComponent {
     } else {
       this.props.getNearesUserLocations()
     }
+  }
+  handleClick = async user => {
+    const object = await api.highFives.initialize({to_user: user.userdata.id})
+    this.props.history.push(`/chat/${user.userdata.id}/${object.id}`)
   }
 
   render() {
@@ -43,7 +49,7 @@ class Proximity extends PureComponent {
             name: user.userdata.full_name,
             url: user.userdata.picture_url,
             distance: `${user.geodata.distance.text} (${user.geodata.duration.text})`,
-            onIconClick: () => history.push(`/chat/${user.userdata.id}`)
+            onIconClick: () => this.handleClick(user)
           }))}
         />
       </div>

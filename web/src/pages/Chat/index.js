@@ -7,6 +7,8 @@ import {Header, IconButton, Wrapper} from '../../components'
 
 import {find} from '../../actions/user'
 
+import api from '../../utils/api'
+
 import './style.css'
 
 class Chat extends PureComponent {
@@ -23,6 +25,17 @@ class Chat extends PureComponent {
     } else {
       await this.props.findUser(match.params.id)
     }
+  }
+
+  handleUploadFile = async event => {
+    const {match} = this.props
+    const file = event.target.files[0]
+    const formData = new FormData()
+    formData.append('photo', file)
+    formData.append('filetype', file.filetype);
+    formData.append('filename', file.name);
+    formData.append('id', match.params.highFiveId)
+    const response = await api.highFives.confirm(formData)
   }
 
   render() {
@@ -60,7 +73,12 @@ class Chat extends PureComponent {
 
           <div className='u-flex-1 u-ml--'>
             <label htmlFor="photoInput">Take a photo</label>
-            <input id='photoInput' type="file" style={{display: 'none'}}/>
+            <input
+              id='photoInput'
+              type="file"
+              style={{display: 'none'}}
+              onChange={this.handleUploadFile}
+            />
           </div>
       </Wrapper>
 
