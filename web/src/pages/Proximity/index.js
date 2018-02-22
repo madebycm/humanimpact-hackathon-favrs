@@ -43,7 +43,7 @@ class Proximity extends PureComponent {
             name: user.userdata.full_name,
             url: user.userdata.picture_url,
             distance: `${user.geodata.distance.text} (${user.geodata.duration.text})`,
-            onIconClick: () => history.push('/chat')
+            onIconClick: () => history.push(`/chat/${user.userdata.id}`)
           }))}
         />
       </div>

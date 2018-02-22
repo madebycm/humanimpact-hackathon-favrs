@@ -22,7 +22,8 @@ export default {
 		}
 	},
 	user: {
-		getProfile: () => syncano.get('users/getmyprofile')
+		getProfile: () => syncano.get('users/getmyprofile'),
+		find: ({id}) => syncano.get('users/find', {id})
 	},
 	proximity: {
 		getNearesUserLocations: () => {

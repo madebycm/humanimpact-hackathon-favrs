@@ -1,38 +1,39 @@
 import React, { PureComponent } from 'react'
+import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { ChatFeed, Message } from 'react-chat-ui'
 
 import {Header, IconButton, Wrapper} from '../../components'
 
+import {find} from '../../actions/user'
+
 import './style.css'
 
 class Chat extends PureComponent {
   state = {
-    messages: [
-      new Message({
-        id: 1,
-        senderName: 'Stine',
-        message: 'Hi there Stine. Ready for a High Five',
-      }), // Gray bubble
-      new Message({
-        id: 0,
-        senderName: 'Daniel',
-        message: 'Me too. Let\'s do it!'
-      }), // Blue bubble
-    ],
+    messages: [ ],
   }
 
-  componentWillMount() {
-    const {history} = this.props
+  async componentWillMount() {
+    const {history, match, user} = this.props
     const token = window.localStorage.getItem('token')
 
     if (!token) {
       history.push('/')
+    } else {
+      await this.props.findUser(match.params.id)
     }
   }
 
   render() {
-    const {history} = this.props
+    const {history, chatTo, user} = this.props
+    const messages = [
+      new Message({
+        id: chatTo.id,
+        senderName: user.full_name,
+        message: `Hi, there ${user.full_name}. Ready for a High Five? Let's take a photo @${chatTo.full_name}`,
+      }),
+    ]
 
     return (
       <div className="Page Chat-page">
@@ -65,7 +66,7 @@ class Chat extends PureComponent {
 
       <Wrapper className='u-mt'>
         <ChatFeed
-          messages={this.state.messages}
+          messages={messages}
           hasInputField={false}
           showSenderName
           bubblesCentered={false}
@@ -90,4 +91,9 @@ class Chat extends PureComponent {
   }
 }
 
-export default withRouter(Chat)
+export default withRouter(connect(({chat, user}) => ({
+  chatTo: chat.user,
+  user: user.profile,
+}), {
+  findUser: find
+})(Chat))

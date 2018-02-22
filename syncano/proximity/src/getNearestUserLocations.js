@@ -9,7 +9,6 @@ export default async (ctx) => {
   	response.json({error: "Dont even think about it"})
   }
 
-
   const allUsers = await users.list()
   const myUser = allUsers.find(user => user.id === ctx.meta.user.id);
 
@@ -62,7 +61,7 @@ export default async (ctx) => {
   	// 	console.log(allPromises);
   	// })
 
-  
+
 
   // users.find(ctx.meta.user.id).then(e => {
   //   return response.json({user: e})
