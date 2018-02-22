@@ -6,6 +6,7 @@ import { ChatFeed, Message } from 'react-chat-ui'
 import {Header, IconButton, Wrapper} from '../../components'
 
 import {find} from '../../actions/user'
+import {getProfile} from '../../actions/user'
 
 import api from '../../utils/api'
 
@@ -36,6 +37,7 @@ class Chat extends PureComponent {
     formData.append('filename', file.name);
     formData.append('id', match.params.highFiveId)
     const response = await api.highFives.confirm(formData)
+    this.props.getProfile()
   }
 
   render() {
@@ -113,5 +115,6 @@ export default withRouter(connect(({chat, user}) => ({
   chatTo: chat.user,
   user: user.profile,
 }), {
-  findUser: find
+  findUser: find,
+  getProfile,
 })(Chat))

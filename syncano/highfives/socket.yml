@@ -11,7 +11,7 @@ classes:
       type: reference
       target: user
     - name: photo
-      type: string
+      type: file
     - name: status
       type: string
 

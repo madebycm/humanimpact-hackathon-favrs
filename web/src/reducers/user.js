@@ -16,8 +16,8 @@ export default function reducer (state = INITIAL_STATE, action) {
     return {
       ...state,
       profile: action.profile,
-      allhf: action.allhf,
-      myhf: action.myhf,
+      allhf: action.allhf || state.allhf,
+      myhf: action.myhf || state.myhf,
       isFetched: true
     }
   default:

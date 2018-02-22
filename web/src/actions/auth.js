@@ -5,10 +5,10 @@ import {setProfile} from './user'
 export const loginWithFb = code => async dispatch => {
   try {
     dispatch(setPending('auth.loginWithFb'))
-    const user = await api.auth.login({code})
-    window.localStorage.setItem('token', user.user_key)
+    const profile = await api.auth.login({code})
+    window.localStorage.setItem('token', profile.user_key)
 
-    dispatch(setProfile(user))
+    dispatch(setProfile({profile}))
     dispatch(deletePending('auth.loginWithFb'))
   } catch (e) {
     dispatch(deletePending('auth.loginWithFb'))
