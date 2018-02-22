@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import {Button} from '../../components'
 
 import './style.css'
@@ -7,17 +9,34 @@ const redirectToTheFacebookModal = () => {
   window.location.href = `https://www.facebook.com/v2.12/dialog/oauth?client_id=1747104338635842&redirect_uri=http://${window.location.host}/auth`
 }
 
-const HomePage = ({}) => (
-  <div className='Home-page u-ta-c'>
-    <img src="https://placehold.it/200x100" alt=""/>
+class HomePage extends PureComponent {
+  componentWillMount() {
+    const {user, history} = this.props
+    const token = window.localStorage.getItem('token')
 
-    <div>
-      <img src="https://placehold.it/100x150" alt=""/>
-      <h5>High-Five</h5>
-    </div>
+    if (token) {
+      history.push('/profile')
+    }
+  }
 
-    <Button backgroundBlue onClick={redirectToTheFacebookModal}>LOGIN WITH FACEBOOK</Button>
-  </div>
-);
+  render() {
+    return (
+      <div className='Page Home-page u-ta-c'>
+        <img src="https://placehold.it/350x150" alt=""/>
 
-export default HomePage;
+        <div className='u-mt'>
+          <img src="https://placehold.it/150x200" alt=""/>
+          <h5>High-Five</h5>
+        </div>
+
+        <div className='u-mt+++'>
+          <Button backgroundBlue onClick={redirectToTheFacebookModal}>LOGIN WITH FACEBOOK</Button>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default withRouter(connect(({user}) => ({
+  user: user.profile
+}))(HomePage))

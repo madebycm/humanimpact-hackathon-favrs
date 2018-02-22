@@ -1,0 +1,13 @@
+header {
+  background-color: #244070;
+}
+
+header section {
+  display: flex;
+  align-items: center;
+}
+
+header section h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
