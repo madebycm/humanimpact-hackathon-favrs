@@ -12,7 +12,7 @@ const redirectToTheFacebookModal = () => {
 
 class HomePage extends PureComponent {
   componentWillMount() {
-    const {user, history} = this.props
+    const {history} = this.props
     const token = window.localStorage.getItem('token')
 
     if (token) {
