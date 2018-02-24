@@ -6,7 +6,7 @@ import {Button} from '../../components'
 import './style.css'
 
 const redirectToTheFacebookModal = () => {
-  window.location.href = `https://www.facebook.com/v2.12/dialog/oauth?client_id=1747104338635842&redirect_uri=http//${window.location.host}/auth`
+  window.location.href = `https://www.facebook.com/v2.12/dialog/oauth?client_id=1747104338635842&redirect_uri=${window.location.protocol}//${window.location.host}/auth`
 }
 
 
