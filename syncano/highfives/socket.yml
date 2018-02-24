@@ -7,9 +7,11 @@ classes:
     - name: from_user
       type: reference
       target: user
+      filter_index: true
     - name: to_user
       type: reference
       target: user
+      filter_index: true
     - name: photo
       type: file
     - name: status
