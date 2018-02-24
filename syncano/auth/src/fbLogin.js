@@ -26,7 +26,6 @@ export default (ctx) => {
       debug('user', user)
       return response.json(user)
     } catch (err) {
-      // debug('user not found', err)
       return response.json({msg: 'Error!', errorIs: err}, 400)
     }
   })
