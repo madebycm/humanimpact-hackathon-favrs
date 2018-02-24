@@ -22,6 +22,7 @@ class App extends Component {
     }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(({coords}) => {
+        api.geolocation.saveMyPosition({position: coords})
         window.setInterval(() => {
           api.geolocation.saveMyPosition({position: coords})
         }, 1000 * 60)
