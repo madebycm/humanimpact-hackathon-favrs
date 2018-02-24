@@ -8,7 +8,7 @@ export const loginWithFb = code => async dispatch => {
     const profile = await api.auth.login({code})
     window.localStorage.setItem('token', profile.user_key)
 
-    dispatch(setProfile({profile}))
+    dispatch(setProfile(profile))
     dispatch(deletePending('auth.loginWithFb'))
   } catch (e) {
     dispatch(deletePending('auth.loginWithFb'))

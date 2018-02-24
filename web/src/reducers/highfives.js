@@ -12,9 +12,9 @@ export default function reducer (state = INITIAL_STATE, action) {
   const {type} = action
   switch (type) {
   case SET_MY_HIGHFIVES:
-    return {...state, my: action.myHighFives}
+    return {...state, my: action.myHighFives || state.my}
   case SET_ALL_HIGHFIVES:
-    return {...state, all: action.allHighFives}
+    return {...state, all: action.allHighFives || state.all}
   default:
     return state
   }

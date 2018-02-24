@@ -17,11 +17,12 @@ class Profile extends PureComponent {
       history.push('/')
     } else {
       this.props.getMyHighFives()
+      this.props.getAllHighFives()
     }
   }
 
   render() {
-    const {history, user, myhf, allhf} = this.props
+    const {history, highFivesCount, myhf, allhf} = this.props
 
     return (
       <div className='Page'>
@@ -30,7 +31,7 @@ class Profile extends PureComponent {
         <Wrapper>
           <section className='High-fives u-mt+ u-flex-row u-center'>
             <div className='High-fives__item u-mr-- u-ta-c u-width-half '>
-              <div className='High-fives__item__counter'>27</div>
+              <div className='High-fives__item__counter'>{highFivesCount}</div>
               <div>High Fives</div>
             </div>
 
@@ -79,7 +80,7 @@ class Profile extends PureComponent {
 }
 
 export default withRouter(connect(({user, highfives}) => ({
-  user: user.profile,
+  highFivesCount: user.highFivesCount,
   myhf: highfives.my,
   allhf: highfives.all,
 }), {

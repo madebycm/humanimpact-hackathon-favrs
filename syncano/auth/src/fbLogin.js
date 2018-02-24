@@ -9,9 +9,7 @@ export default (ctx) => {
 
   return FB.api('me', { fields: 'id,name,picture', access_token: accessToken }, async (res) => {
     try {
-      // debug('finding user', res.id)
       const user = await users
-        // .fields('fb_id', 'full_name', 'full_name')
         .firstOrCreate(
         {
           username: res.id,
