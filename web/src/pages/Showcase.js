@@ -11,7 +11,7 @@ const membersList = [
   { name: "John", url: "", distance: "1,6km" }
 ]
 
-const Showcase = ({}) => (
+const Showcase = () => (
   <div>
     <h1>Showcase page</h1>
     <h2>Button:</h2>
