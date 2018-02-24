@@ -21,7 +21,11 @@ class App extends Component {
       await this.props.initializeSession()
     }
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(({coords}) => api.geolocation.saveMyPosition({position: coords}));
+      navigator.geolocation.getCurrentPosition(({coords}) => {
+        window.setInterval(() => {
+          api.geolocation.saveMyPosition({position: coords})
+        }, 1000 * 60)
+      });
     }
     else alert("Your device doesnt support this app because of geolocation");
   }
