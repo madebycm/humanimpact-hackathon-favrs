@@ -24,6 +24,13 @@ export const loginWithFb = code => async dispatch => {
 export const initializeSession = () => async dispatch => {
   try {
     dispatch(setPending('auth.initializeSession'))
+    const token = window.localStorage.getItem('token')
+
+    if (token === 'undefined') {
+      window.localStorage.removeItem('token')
+      dispatch(push('/'))
+      return
+    }
 
     dispatch(getProfile())
 
