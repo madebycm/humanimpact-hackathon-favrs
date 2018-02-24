@@ -1,6 +1,6 @@
 import api from '../utils/api'
 import {setPending, deletePending} from './ui'
-import {setProfile} from './user'
+import {getProfile, setProfile} from './user'
 
 export const loginWithFb = code => async dispatch => {
   try {
@@ -18,12 +18,9 @@ export const loginWithFb = code => async dispatch => {
 export const initializeSession = () => async dispatch => {
   try {
     dispatch(setPending('auth.initializeSession'))
-    const token = window.localStorage.getItem('token')
-    if (!token) return
 
-    const {user, myhf, allhf} = await api.user.getProfile()
+    dispatch(getProfile())
 
-    dispatch(setProfile({profile: user, myhf, allhf}))
     dispatch(deletePending('auth.initializeSession'))
   } catch (e) {
     dispatch(deletePending('auth.initializeSession'))

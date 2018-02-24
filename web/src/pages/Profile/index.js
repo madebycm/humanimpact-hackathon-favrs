@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 import {Header, Wrapper, CircleButton} from '../../components'
 
+import {getMy, getAll} from '../../actions/highfives'
+
 import './style.css'
 
 class Profile extends PureComponent {
@@ -13,6 +15,8 @@ class Profile extends PureComponent {
 
     if (!token) {
       history.push('/')
+    } else {
+      this.props.getMyHighFives()
     }
   }
 
@@ -74,8 +78,11 @@ class Profile extends PureComponent {
   }
 }
 
-export default withRouter(connect(({user}) => ({
+export default withRouter(connect(({user, highfives}) => ({
   user: user.profile,
-  myhf: user.myhf,
-  allhf: user.allhf,
-}))(Profile))
+  myhf: highfives.my,
+  allhf: highfives.all,
+}), {
+  getMyHighFives: getMy,
+  getAllHighFives: getAll
+})(Profile))

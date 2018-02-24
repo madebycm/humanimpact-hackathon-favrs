@@ -45,6 +45,13 @@ export default {
 			syncano.setToken(token)
 
 			return syncano.post('highfives/confirm', data)
-		}
+		},
+		getAll: () => syncano.get('highfives/getAllHighFives'),
+		getMy: () => {
+			const token = window.localStorage.getItem('token')
+			syncano.setToken(token)
+
+			return syncano.get('highfives/getMyHighFives')
+		},
 	}
 }

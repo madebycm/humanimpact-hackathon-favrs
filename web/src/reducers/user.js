@@ -4,8 +4,6 @@ import {
 
 const INITIAL_STATE = {
   profile: {},
-  allhf: [],
-  myhf: [],
   isFetched: false,
 }
 
@@ -15,10 +13,8 @@ export default function reducer (state = INITIAL_STATE, action) {
   case SET_USER_PROFILE:
     return {
       ...state,
-      profile: action.profile,
-      allhf: action.allhf || state.allhf,
-      myhf: action.myhf || state.myhf,
-      isFetched: true
+      profile: action.user,
+      isFetched: true,
     }
   default:
     return state
