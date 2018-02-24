@@ -19,8 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:local": "AUTH_URL=localhost:3000/auth react-scripts build",
-    "build:remote": "AUTH_URL=https://purple-cherry-5235.syncano.site/auth react-scripts build",
+    "build": "react-scripts build && cp build/index.html build/200.html && cp build/index.html build/404.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
